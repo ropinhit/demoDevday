@@ -1,4 +1,4 @@
-@DEE-123
+@a
 Feature: Login
   As a admin I want to login to the web page
 
@@ -9,20 +9,21 @@ Feature: Login
     When I enter username and password
     Then I should see the logout button
 
+  @456
+  Scenario: login successfully without hard user and pass
+    Given The coffee shop page is opening
+    When I enter username 'Luke' and password 'Skywalker'
+    Then I should see the greeting message 'Hello Luke'
 
-#  Scenario: login successfully without hard user and pass
-#    Given The coffee shop page is opening
-#    When I enter username 'Luke' and password 'Skywalker'
-#    Then I should see the greeting message 'Hello Luke'
-
+    @789
   Scenario Outline: Greeting message displayed when login successfully without hard username and password
     Given The coffee shop page is opening
     When I enter username '<user>' and password '<pass>'
     Then I should see the greeting message '<message>'
     Examples:
-      | user | pass | message   |
+      | user | pass      | message    |
       | Luke | Skywalker | Hello Luke |
-      | Anh  | Dang | Hello Anh |
+      | Anh  | Dang      | Hello Anh  |
 
 
   Scenario Outline:: Error message displayed when user login failed
